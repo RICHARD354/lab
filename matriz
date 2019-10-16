@@ -1,0 +1,74 @@
+
+#include <stdlib.h>
+
+#define MAX 50
+void leer (int matriz[MAX][MAX], int m, int n);
+void sumar(int m1[MAX][MAX], int m2[MAX][MAX], int m, int n, int p, int q, int t[MAX][MAX]);
+void imprimir(int a[MAX][MAX], int m, int n);
+
+int main(){
+	int a[MAX][MAX], b[MAX][MAX], c[MAX][MAX];
+	int p, q, m ,n;
+	printf("ingresa el numero de filas de la primera matriz\n");
+	scanf("%d", &m);
+	printf("ingresa el numero de columnas de la primera matriz\n");
+	scanf("%d", &n);
+	printf("ingresa el numero de filas de la segunda matriz matriz\n");
+	scanf("%d", &p);
+	printf("ingresa el numero de columnas de la segunda matriz\n");
+	scanf("%d", &q);
+	printf("------Primera Matriz------\n");
+	leer(a, m, n);
+	printf("------Segunda Matriz------\n");
+	leer(b, p, q);
+	printf("La suma de la primera matriz y la segunda es:\n");
+	sumar(a, b, m, n, p, q, c);
+	imprimir(c, m, n);
+	return 0;
+	
+}
+
+void leer (int matriz[MAX][MAX], int m, int n){
+	int i, j;
+	for(i=0; i<= m ; ++i){
+		for(j=0; j <= n; ++j){
+			printf("ingresa el valor %d, %d\n", i, j);
+			scanf("%d", &matriz[i][j]);
+		}
+	}
+}
+
+void sumar(int m1[MAX][MAX], int m2[MAX][MAX], int m, int n, int p, int q, int t[MAX][MAX]){
+	int i, j;	
+	if(m == p && n == q){
+		for(i=0; i<m ;++i){
+			for(j=0; j<n; ++j){
+				t[i][j] = m1[i][j]+ m2[i][j];
+			}
+		}
+		
+	}else{
+		printf("las matrices no se pueden sumar\n");
+	}
+}
+
+void imprimir(int a[MAX][MAX], int m, int n){
+	int i, j;
+	for(i=0; i<= m ; ++i){
+		for(j=0; j <= n; ++j){
+			printf("%d\t", a[i][j]);
+		}
+		printf("\n");
+	}
+	
+}
+
+
+
+
+
+
+
+
+
+
